@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title><%= query %> - Camerpedia Search </title>
+</head>
+
+<body class="flex flex-col min-h-screen">
+    <!--Header-->
+    <div class="flex w-full px-8 py-8 border-b border-gray-200">
+
+        <div class="flex flex-wrap items-center justify-between md:w-3/5">
+            <div class="flex justify-between w-full md:w-auto">
+                <a href="/search" class="flex w-full md:w-auto">
+                    <div class="w-full mb-4 text-xl font-bold text-blue-600 md:w-32 md:mb-0 "><img src="https://i.ibb.co/vcKsqTg/logo-removebg-preview.png" alt="" class="h-16" srcset=""></div>
+                </a>
+
+                <a class="text-blue-700 md:hidden" href="#">Account</a>
+            </div>
+          
+            <form class="flex-1 w-full md:w-auto" method="GET" accept="/search">
+                <input type="text" name="query" value="<%= query %> "
+                    class="w-full p-3 px-4 rounded-full shadow-lg focus:outline-none ring-1 ring-gray-200">
+            </form>
+        </div>
+
+        <div class="items-center justify-end flex-1 hidden text-blue-600 md:flex">
+            <a href="#">Account</a>
+        </div>
+
+
+
+    </div>
+
+    <!--Body Content-->
+    <div class="flex flex-col-reverse flex-1 w-full px-8 pb-8 md:flex-row">
+        <!--Result Pane-->
+        <div class=" md:w-1/2 lg:w-3/5 md:pr-12">
+            <!--Actual Result Content-->
+            <div class="flex flex-col py-4 lg:ml-32">
+
+                <!--Result summary-->
+                <div class="text-sm text-gray-600">Found <%= documents.length %>  results (<%= time %> ms)</div>
+
+                <!--Results-->
+                <div class="">
+<%# JSON.stringify(documents) %> 
+                    <!--Result 1-->
+                    <% documents.forEach(doc => { %>
+                       
+                    <% if (doc.link === "http://www.w3.org/2000/01/rdf-schema#label") { %>
+                        <div class="flex flex-col mt-8">
+                        <a href="/wiki/<%= doc.object.split("#")[1] %>" class="text-xl font-medium text-blue-600"><%= doc.subject %></a>
+                        <p class="text-xs text-gray-400">https://groupe2.foodontology.com/wiki/<%= doc.object.split("#")[1] %></p>
+                        <p class="mt-1 text-base text-gray-800">Plat fait a base de riz, cuit a la vapeur</p>
+                    </div>
+                    <% }%>
+                        
+                           
+                       
+
+                    <% }) %>
+                    
+
+                   
+                </div>
+
+
+            </div>
+
+
+            <!--Pagination-->
+            <div class="hidden ml-32">
+                <div class="flex items-center justify-between px-4 py-3 bg-white border-t border-gray-200 sm:px-0">
+                    <div class="flex justify-between flex-1 sm:hidden">
+                        <a href="#"
+                            class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
+                            Previous
+                        </a>
+                        <a href="#"
+                            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
+                            Next
+                        </a>
+                    </div>
+                    <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                        <div>
+                            <p class="text-sm text-gray-700">
+                                Showing
+                                <span class="font-medium">1</span>
+                                to
+                                <span class="font-medium">10</span>
+                                of
+                                <span class="font-medium">97</span>
+                                results
+                            </p>
+                        </div>
+                        <div>
+                            <nav class="relative z-0 inline-flex -space-x-px rounded-md shadow-sm"
+                                aria-label="Pagination">
+                                <a href="#"
+                                    class="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50">
+                                    <span class="sr-only">Previous</span>
+                                    <!-- Heroicon name: solid/chevron-left -->
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                                <!-- Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" -->
+                                <a href="#" aria-current="page"
+                                    class="relative z-10 inline-flex items-center px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-500 bg-indigo-50">
+                                    1
+                                </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 hover:bg-gray-50">
+                                    2
+                                </a>
+                                <a href="#"
+                                    class="relative items-center hidden px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 md:inline-flex">
+                                    3
+                                </a>
+                                <span
+                                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300">
+                                    ...
+                                </span>
+                                <a href="#"
+                                    class="relative items-center hidden px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 md:inline-flex">
+                                    8
+                                </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 hover:bg-gray-50">
+                                    9
+                                </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 hover:bg-gray-50">
+                                    10
+                                </a>
+                                <a href="#"
+                                    class="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50">
+                                    <span class="sr-only">Next</span>
+                                    <!-- Heroicon name: solid/chevron-right -->
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Results suggestion-->
+            <div class="mt-8 lg:ml-32">
+                <p class="text-2xl">Related Search</p>
+                <div class="w-full h-px my-4 bg-gray-300"></div>
+                <div class="flex flex-wrap">
+                    <!--Suggestion-->
+                    <div class="w-1/2 mt-2">
+                        <div class="w-5/6 px-6 py-2 bg-gray-200 rounded-full cursor-pointer hover:bg-gray-400">Tomate
+                        </div>
+                    </div>
+
+                    <!--Suggestion-->
+                    <div class="w-1/2 mt-2">
+                        <div class="w-5/6 px-6 py-2 bg-gray-200 rounded-full cursor-pointer hover:bg-gray-400">Maïs
+                        </div>
+                    </div>
+
+                    <!--Suggestion-->
+                    <div class="w-1/2 mt-2">
+                        <div class="w-5/6 px-6 py-2 bg-gray-200 rounded-full cursor-pointer hover:bg-gray-400">Farine
+                        </div>
+                    </div>
+
+                    <!--Suggestion-->
+                    <div class="w-1/2 mt-2">
+                        <div class="w-5/6 px-6 py-2 bg-gray-200 rounded-full cursor-pointer hover:bg-gray-400">Blé
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--Knowledge Pane-->
+        <div class="flex-1 max-w-lg p-4 mt-4 rounded-lg ring-1 ring-gray-200">
+            <% if (boite) { %>
+
+                <p class="mb-4 text-4xl font-bold text-blue">
+                    <%= boite.subject %>
+                </p>
+
+                
+                 
+                <% if (boite.detail) { %>
+                    <% Object.entries(boite.detail).forEach(([key, value])=> { %>
+                        
+
+
+
+                        <% if (key==="http://www.w3.org/2000/01/rdf-schema#subClassOf" ) { %>
+                            <div class="flex mt-2">
+                                <p class="font-medium">Famille :</p>
+                                <div class="flex flex-wrap text-blue-700">
+                                    <% value.forEach(element=> { %>
+                                        <a class="ml-2 hover:underline"
+                                        href="/search/?query=<%= element.label.value %>  ">
+                                            <%= element.label.value %>
+                                        </a>
+                                        <% }) %>
+                                </div>
+                            </div>
+                       
+
+                        <%} else if (key==="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" ) { %>
+                            <div class="flex mt-2">
+                                <p class="font-medium">Type :</p>
+                                <div class="flex flex-wrap text-blue-700">
+                                    <% value.forEach(element=> { %>
+                                        <a class="ml-2 hover:underline"
+                                        href="/search/?query=<%= element.label.value %> ">
+                                            <%= element.label.value %>
+                                        </a>
+                                        <% }) %>
+                                </div>
+                            </div>
+                       
+
+
+                        <% } else if (key==="http://www.w3.org/2000/01/rdf-schema#label" ) { %>
+
+                            <div class="flex mt-2">
+                                <p class="font-medium">Dénomination :</p>
+                                <div class="flex flex-wrap ">
+                                    <% value.forEach(element=>{ %>
+                                        <p class="ml-2 ">
+                                            <%= element.subject.value %>
+                                            <sup class="text-blue-700"><%=  element.subject["xml:lang"] %> </sup>
+                                        </p>
+                                    <% }) %>
+                                </div>
+                            </div>
+
+                        <% } else {%>
+                            <div class="flex mt-2">
+                                <%# JSON.stringify(value[0].linkLabel) %> 
+                                <p class="font-medium capitalize">
+                                    <% if (value[0].linkLabel) { %>
+                                      <%= value[0].linkLabel.value %>  
+                                    <% }else{ %>
+                                    <%=  value[0].link.value.split('#')[1]%> 
+                                    
+                                    <% } %>:</p>
+                                <div class="flex flex-wrap text-blue-700">
+                                    <% value.forEach(element=> { %>
+                                        <a class="ml-2 hover:underline"
+                                        href="/search/?query=<%= element.label.value %> ">
+                                            <%= element.label.value %>
+                                        </a>
+                                        <% }) %>
+                                </div>
+                            </div>
+                            
+                        <% } %>
+
+
+                            
+                    <% }) %>
+                <% } %>
+
+
+                <%# Relations %> 
+                <hr>
+                <%# JSON.stringify(boite) %> 
+                <% if (boite.relations) { %>
+                        
+                    <% Object.entries(boite.relations).forEach(([key, value])=> { %>
+
+
+                        <% if (key==="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" ) { %>
+                            <div class="flex flex-col mt-2">
+                                <p class="font-medium">Examples :</p>
+                                <div class="flex flex-wrap text-blue-700">
+                                    <% value.forEach(element=> { %>
+                                        <a class="ml-2 hover:underline"
+                                            href="/search/?query=<%= element.label.value %> ">
+                                            <%= element.label.value %>
+                                        </a>
+                                        <% }) %>
+                                </div>
+                            </div>
+                       
+
+
+                        <% } else if (key==="http://www.w3.org/2000/01/rdf-schema#subClassOf" ) { %>
+
+                            <div class="flex-col mt-4">
+                                <p class="pb-2 font-medium border-b border-blue-700">De la meme famille :</p>
+                                <div class="flex flex-wrap ">
+                                    <% value.forEach(element=>{ %>
+                                        <a class="p-1 px-2 mt-2 ml-2 text-center transition-colors bg-gray-300 rounded-full hover:bg-blue-400"
+                                        href="/search/?query=<%= element.label.value %> ">
+                                        <%= element.label.value %>
+                                    </a>
+                                    <% }) %>
+                                </div>
+                            </div>
+
+                        <% } else {%>
+                            <div class="flex mt-2">
+                                <p class="font-medium capitalize"><%= value.linkLabel?.value ?? value.link.value%>  :</p>
+                                <div class="flex flex-wrap text-blue-700">
+                                    <% value.forEach(element=> { %>
+                                        <a class="ml-2 hover:underline"
+                                        href="/search/?query=<%= element.label.value %> ">
+                                            <%= element.label.value %>
+                                        </a>
+                                        <% }) %>
+                                </div>
+                            </div>
+                            
+                        <% } %>
+
+
+                            
+                    <% }) %>
+                <% } %>
+
+
+
+
+                                               
+                                            
+                                                <% } %>
+        </div>
+    </div>
+
+
+    <!--Footer-->
+    <div class="px-8 py-8 bg-gray-200 ">
+        <div class="ml-32 text-sm">
+            Camerpedia.cm @2021
+        </div>
+
+    </div>
+
+</body>
+
+</html>

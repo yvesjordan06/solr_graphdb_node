@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Search Results</title>
+</head>
+
+<body>
+    <!--Header-->
+    <div class="px-8 py-8 border-b border-gray-200 flex w-full">
+
+        <div class="md:w-3/5 flex items-center flex-wrap justify-between">
+            <div class="flex w-full md:w-auto justify-between">
+                <a href="/search" class="w-full md:w-auto flex">
+                    <div class="w-full md:w-32 mb-4 md:mb-0 text-xl font-bold text-blue-600 "><img src="https://i.ibb.co/vcKsqTg/logo-removebg-preview.png" alt="" class="h-16" srcset=""></div>
+                </a>
+
+                <a class="md:hidden text-blue-700" href="#">Account</a>
+            </div>
+          
+            <form class="flex-1 w-full md:w-auto" method="GET" accept="/search">
+                <input type="text" name="query" value="Camerpedia-Wiki#<%= id %> "
+                    class="p-3 px-4 w-full focus:outline-none ring-1 ring-gray-200 shadow-lg rounded-full">
+            </form>
+        </div>
+
+        <div class=" flex-1 hidden md:flex justify-end items-center text-blue-600">
+            <a href="#">Account</a>
+        </div>
+
+
+
+    </div>
+
+    <!--Body Content-->
+    <div class="w-full px-8 pb-8 flex flex-col">
+        <!--Result Pane-->
+        <div class=" lg:w-3/5">
+            <!--Actual Result Content-->
+            <div class="lg:ml-32 flex flex-col py-4">
+
+              <!--Header-->
+               <div>
+                   <p class="font-bold text-3xl">Rice</p>
+                   <div class="h-px bg-gray-300 mt-1"></div>
+                   <p class="text-sm font-light mt-1">Source from knowledge base, The food ontology</p>
+                   <p class="mt-4">
+                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt accusantium maiores ab nisi voluptatibus in libero velit vitae corrupti, tenetur, dolores ad molestias magni architecto quod autem beatae sequi, eos labore ducimus. Rerum, natus earum eligendi in inventore dignissimos ipsa sint hic omnis doloremque quos? Perferendis voluptatibus odit praesentium delectus! Suscipit quam sapiente modi laudantium tempora, velit dolorem quo animi. Nobis a corporis quibusdam nisi inventore quisquam enim aut asperiores dolorum iure repellendus rerum veritatis vel modi saepe earum, aspernatur provident quasi, mollitia nam! Cum nulla nobis, harum aperiam adipisci exercitationem dolor repudiandae corporis, reprehenderit ex accusantium nam culpa? Alias minus vero ab repudiandae facere sit reprehenderit nulla, aut sunt accusantium molestias tempora illum ad beatae dolor, reiciendis culpa veniam omnis esse. Sapiente aut vitae odio adipisci sed, suscipit aspernatur corporis minus ad nemo voluptates architecto itaque praesentium accusantium neque numquam eveniet obcaecati nam tenetur autem quas eaque pariatur illo magni? Voluptates, nostrum similique exercitationem atque accusamus unde consequuntur aliquid fuga cumque vitae voluptas cupiditate est fugiat, omnis dignissimos minus. Iste eum, cumque voluptate molestiae voluptatum, eos, quam facilis omnis perspiciatis unde quod possimus non natus aut itaque eaque ex. Aut atque beatae explicabo corporis quia assumenda repellendus neque fugit laudantium odio repellat eaque ut iste quod molestias vero fuga, similique facilis voluptatem autem commodi! Magnam eveniet, culpa dolore dolor labore sit molestias voluptate accusantium aliquam possimus totam. Totam quod, doloribus porro quibusdam nostrum dolore maxime vitae adipisci, id consequatur voluptas. Nemo, nostrum optio, velit corrupti ad adipisci temporibus consectetur asperiores molestiae nihil maxime animi tempora neque? A ullam sequi beatae. Voluptates expedita maiores quia placeat ipsam, praesentium sit. Aliquam beatae explicabo voluptatem alias sed ipsa illo totam reprehenderit perferendis quas, iure consequuntur aspernatur! Vero est voluptatem sed omnis ratione repellendus doloremque, praesentium nam velit reprehenderit, error distinctio, laborum eos.   
+                   </p>
+               </div>
+
+               <!--sections data property-->
+               <div>
+                   <!--Data Property 1-->
+                <div class="mt-4">
+                    <p class="text-2xl font-medium">Nutrient</p>
+                    <div class="h-px bg-gray-300"></div>
+                    <p class="mt-3">
+                        Ce repas contient xxx proteine et xxx yy
+                    </p>
+                </div>
+
+
+                 <!--Data Property 1-->
+                 <div class="mt-4">
+                    <p class="text-2xl font-medium">Nom local</p>
+                    <div class="h-px bg-gray-300"></div>
+                    <p class="mt-3">
+                        Ce repas contient xxx proteine et xxx yy
+                    </p>
+                </div>
+
+
+
+                 <!--Data Property 1-->
+                 <div class="mt-4">
+                    <p class="text-2xl font-medium">Region d'origine</p>
+                    <div class="h-px bg-gray-300"></div>
+                    <p class="mt-3">
+                        Ce repas contient xxx proteine et xxx yy
+                    </p>
+                </div>
+               </div>
+             
+
+                <!--sections object property-->
+               <div>
+                     <!--Data Property 1-->
+                 <div class="mt-4">
+                    <p class="text-2xl font-medium">Recette</p>
+                    <div class="h-px bg-gray-300"></div>
+                   <div class="mt-2">
+                    <a href="#" class="text-lg text-blue-600 font-medium">Riz sauté chez les bamenda</a>
+                    <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque itaque mollitia deleniti cupiditate earum magnam a architecto iure nesciunt ab?</p>
+                   </div>
+                </div>
+               </div>
+               
+
+
+            </div>
+
+
+           
+        </div>
+
+        <!--Knowledge Pane-->
+        <div></div>
+    </div>
+
+
+    <!--Footer-->
+    <div class="bg-gray-200 py-8 px-8 ">
+        <div class="ml-32 text-sm">
+            Camerpedia Wiki @2021
+        </div>
+        
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Camerpedia - Enrichir</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<!-- Font-->
+	<style>
+		.form-v8-content .form-detail {
+			padding: 0 40px;
+		}
+
+		.form-v8-content .form-row {
+			width: 100%;
+			position: relative;
+		}
+
+		.form-v8-content .form-row .form-row-inner {
+			position: relative;
+			width: 100%;
+		}
+
+		.form-v8-content .form-row .form-row-inner .label {
+			position: absolute;
+			top: -2px;
+			left: 10px;
+			font-size: 18px;
+			color: #f2f2f2;
+			font-weight: 400;
+			transform-origin: 0 0;
+			transition: all .2s ease;
+			-moz-transition: all .2s ease;
+			-webkit-transition: all .2s ease;
+			-o-transition: all .2s ease;
+			-ms-transition: all .2s ease;
+		}
+
+		.form-v8-content .form-row .form-row-inner .border {
+			position: absolute;
+			bottom: 31px;
+			left: 0;
+			height: 1px;
+			width: 100%;
+			background: rgb(0, 158, 253);
+			transform: scaleX(0);
+			-moz-transform: scaleX(0);
+			-webkit-transform: scaleX(0);
+			-o-transform: scaleX(0);
+			-ms-transform: scaleX(0);
+			transform-origin: 0 0;
+			transition: all .15s ease;
+			-moz-transition: all .15s ease;
+			-webkit-transition: all .15s ease;
+			-o-transition: all .15s ease;
+			-ms-transition: all .15s ease;
+		}
+
+		.form-v8-content .form-detail .input-text {
+			margin-bottom: 31px;
+
+		}
+
+		.form-v8-content .form-detail select {
+			margin-bottom: 31px;
+		}
+
+		.form-v8-content .form-detail textarea {
+			margin-bottom: 31px;
+		}
+
+		.form-v8-content .form-detail input {
+			width: 100%;
+			padding: 0px 10px 15px 10px;
+			border: 1px solid transparent;
+			border-bottom: 1px solid;
+			border-bottom-color: rgba(255, 255, 255, 0.2);
+			background: transparent;
+			appearance: unset;
+			-moz-appearance: unset;
+			-webkit-appearance: unset;
+			-o-appearance: unset;
+			-ms-appearance: unset;
+			outline: none;
+			-moz-outline: none;
+			-webkit-outline: none;
+			-o-outline: none;
+			-ms-outline: none;
+			font-size: 18px;
+			color: #fff;
+			font-weight: 300;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-o-box-sizing: border-box;
+			-ms-box-sizing: border-box;
+		}
+
+		.form-v8-content .form-detail select {
+			width: 100%;
+			padding: 0px 10px 15px 10px;
+			border: 1px solid transparent;
+			border-bottom: 1px solid;
+			border-bottom-color: rgba(255, 255, 255, 0.2);
+			background: transparent;
+			appearance: unset;
+			-moz-appearance: unset;
+			-webkit-appearance: unset;
+			-o-appearance: unset;
+			-ms-appearance: unset;
+			outline: none;
+			-moz-outline: none;
+			-webkit-outline: none;
+			-o-outline: none;
+			-ms-outline: none;
+			font-size: 18px;
+			color: #fff;
+			font-weight: 300;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-o-box-sizing: border-box;
+			-ms-box-sizing: border-box;
+		}
+
+		.form-v8-content .form-detail textarea {
+			width: 100%;
+			padding: 0px 10px 15px 10px;
+			border: 1px solid transparent;
+			border-bottom: 1px solid;
+			border-bottom-color: rgba(255, 255, 255, 0.2);
+			background: transparent;
+			appearance: unset;
+			-moz-appearance: unset;
+			-webkit-appearance: unset;
+			-o-appearance: unset;
+			-ms-appearance: unset;
+			outline: none;
+			-moz-outline: none;
+			-webkit-outline: none;
+			-o-outline: none;
+			-ms-outline: none;
+			font-size: 18px;
+			color: #fff;
+			font-weight: 300;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-o-box-sizing: border-box;
+			-ms-box-sizing: border-box;
+		}
+
+		.form-v8-content .form-detail .form-row .input-text:focus {
+			border-bottom: 1px solid rgb(0, 158, 253);
+			background: transparent;
+		}
+
+		.form-v8-content .form-detail .form-row .input-text:focus+.label,
+		.form-v8-content .form-detail .form-row .input-text:valid+.label {
+			transform: translateY(-26px) scale(1);
+			-moz-transform: translateY(-26px) scale(1);
+			-webkit-transform: translateY(-26px) scale(1);
+			-o-transform: translateY(-26px) scale(1);
+			-ms-transform: translateY(-26px) scale(1);
+
+		}
+
+		.form-v8-content .form-detail .form-row .input-text:focus+.border,
+		.form-v8-content .form-detail .form-row .input-text:valid+.border {
+			transform: scaleX(1);
+			-moz-transform: scaleX(1);
+			-webkit-transform: scaleX(1);
+			-o-transform: scaleX(1);
+			-ms-transform: scaleX(1);
+
+		}
+	</style>
+</head>
+
+<body class="form-v8">
+
+	<nav class="flex w-full px-8 py-2 border-b border-gray-200">
+
+		<div class="flex flex-wrap items-center justify-between md:w-3/5">
+			<div class="flex justify-between w-full md:w-auto">
+				<a href="/search" class="flex w-full md:w-auto">
+					<div class="flex items-center w-full mb-4 text-xl font-bold text-blue-600 md:mb-0"><img
+							src="https://i.ibb.co/vcKsqTg/logo-removebg-preview.png" alt="" class="h-16 mr-2" srcset="">
+						What to cook today</div>
+
+				</a>
+
+				<a class="text-blue-700 md:hidden" href="#">Account</a>
+			</div>
+
+			<%#-- <form class="flex-1 w-full md:w-auto" method="GET" accept="/search">
+				<input type="text" name="query" value="Camerpedia-Wiki# "
+					class="w-full p-3 px-4 rounded-full shadow-lg focus:outline-none ring-1 ring-gray-200">
+				</form> -%>
+		</div>
+
+		<div class="items-center justify-end flex-1 hidden text-gray-800 md:flex">
+			<a href="/meal" class="ml-3">Meal Assistant</a>
+			<a href="/diet-planner" class="ml-3">My diet Planner</a>
+			<a href="#" class="ml-3">Account</a>
+		</div>
+
+
+
+	</nav>
+
+	<div class="container flex flex-col px-8 mx-auto mt-8 lg:flex-row items">
+		<div class="flex flex-row flex-1 max-w-5xl bg-white rounded-lg ring-1 ring-gray-200">
+			<div class="hidden w-2/5 overflow-hidden bg-center bg-cover md:block" style="background-image: url('https://i.ibb.co/L5fvcfn/pixiz-15-06-2021-12-17-26.jpg');">
+
+
+			</div>
+			<div class="flex flex-col flex-1 ">
+				<div class="flex justify-center pt-4 text-lg font-bold tracking-wide text-center text-blue-700 lg:text-2xl">
+					<div class="flex-1 pb-4 mx-4 border-b-2 border-blue-400 tab-inner">
+						<button class="tablinks focus:outline-none" onclick="openCity(event, 'triplet')"
+							id="defaultOpen">Nouveau Triplet</button>
+					</div>
+					<div class="flex-1 pb-4 mx-4 border-b-2 border-blue-400 border-none tab-inner">
+						<button class="tablinks focus:outline-none" onclick="openCity(event, 'Ajouter')">Ajouter un
+							object</button>
+					</div>
+				</div>
+
+				<div class="flex-1 p-8">
+					<form class="form-detail" action="#" method="post">
+						<div class="tabcontent" id="triplet">
+
+							<label for="sujet">
+								Sujet
+							<select type="" name="sujet" id="URI"
+										class="w-full p-2 text-black bg-white rounded shadow appearance-none focus:outline-none ring-1 ring-gray-200 input-text bg-purple-white"
+										placeholder="Predicat"
+										required>
+									<option selected disabled>Sujet</option>
+									<option selected disabled>rdfs:Type</option>
+									</select>
+								</label>
+							<div class="relative flex flex-col p-4 mt-4 border-2 border-gray-300 rounded-lg">
+								<p class="absolute px-1 text-sm text-gray-500 bg-white -top-3">Object Property</p>
+								<select type="" name="URI" id="URI"
+										class="p-2 text-black bg-white rounded shadow appearance-none focus:outline-none ring-1 ring-gray-200 input-text bg-purple-white"
+										placeholder="Predicat"
+										required>
+									<option selected disabled>Select Object Property</option>
+									<option selected disabled>rdfs:Type</option>
+									</select>
+										<input type="text" name="URI" id="URI"
+										placeholder="Objet"
+										class="p-2 mt-2 rounded shadow ring-1 ring-gray-200 input-text bg-purple-white"
+										required>
+							</div>
+
+
+							<div class="flex justify-end mt-8 text-white">
+								<button class="p-2 text-sm bg-purple-500 rounded-lg">Object Property</button>
+								<button class="p-2 ml-2 text-sm bg-blue-500 rounded-lg">Data Property</button>
+							</div>
+
+
+
+							<div class="mt-8 form-row-last">
+								<input type="button" name="Ajouter" class="p-4 px-8 text-blue-700 bg-gray-300 rounded-lg register" value="Ajouter">
+							</div>
+						</div>
+					</form>
+
+
+					<form class="form-detail" action="#" method="post">
+						<div class="tabcontent" id="Ajouter">
+							<div class="mt-1 form-row">
+								<label class="flex flex-col form-row-inner">
+									<span class="label">URI <sup class="text-red-500">*</sup></span>
+									<input type="text" name="URI" id="URI"
+										class="p-3 rounded shadow ring-1 ring-gray-200 input-text bg-purple-white"
+										required>
+
+
+								</label>
+							</div>
+
+							<div class="mt-1 form-row">
+								<label class="flex flex-col form-row-inner">
+									<span class="label">Label <sup class="text-red-500">*</sup></span>
+									<input type="text" name="URI" id="URI"
+										class="p-3 rounded shadow ring-1 ring-gray-200 input-text bg-purple-white"
+										required>
+
+
+								</label>
+							</div>
+
+
+							<div class="mt-1 form-row">
+								<label class="flex flex-col form-row-inner">
+									<span class="label">Description <sup class="text-red-500">*</sup></span>
+									<textarea type="text" name="URI" id="URI"
+										class="p-3 rounded shadow ring-1 ring-gray-200 input-text bg-purple-white"
+										required></textarea>
+
+
+								</label>
+							</div>
+
+
+							<div class="relative flex flex-col p-4 mt-4 border-2 border-gray-300 rounded-lg">
+								<p class="absolute px-1 text-sm text-gray-500 bg-white -top-3">Object Property</p>
+								<input type="text" name="URI" id="URI"
+										class="p-2 rounded shadow ring-1 ring-gray-200 input-text bg-purple-white"
+										placeholder="Predicat"
+										required>
+										<input type="text" name="URI" id="URI"
+										placeholder="Objet"
+										class="p-2 mt-2 rounded shadow ring-1 ring-gray-200 input-text bg-purple-white"
+										required>
+							</div>
+
+
+							<div class="flex justify-end mt-8 text-white">
+								<button class="p-2 text-sm bg-purple-500 rounded-lg">Object Property</button>
+								<button class="p-2 ml-2 text-sm bg-blue-500 rounded-lg">Data Property</button>
+							</div>
+
+
+
+							
+
+
+							<div class="mt-8 form-row-last">
+								<input type="button" name="Ajouter" class="p-4 px-8 text-blue-700 bg-gray-300 rounded-lg register" value="Ajouter">
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="self-stretch p-8 mt-12 lg:ml-8 lg:w-96 lg:mt-0 ring-gray-200 ring-1">
+			<p class="text-2xl text-center text-blue-700">Historique</p>
+
+			<div class="mt-4">
+				<div class="flex items-center text-sm">
+					<span class="p-1 mr-2 bg-gray-500 rounded-full"></span>
+					<a href="/search/?query=le+riz class=" class="text-blue-500">Le riz</a>
+
+					<a href="#" class="ml-1 text-red-500 lowercase">Se mange avec</a>
+
+					<a href="/search/?query=sauce+tomate" class="ml-1 text-blue-500">Sauce Tomate</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function openCity(evt, cityName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+	</script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
